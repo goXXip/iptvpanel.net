@@ -185,7 +185,7 @@ function writeConfig {
 function upgradeFiles {
 	if [ "$ISCMS" = "1" ]; then
 		echo -ne "${BCyan}Upgrading CMS...${Reset}"
-		wget -O /tmp/iptvpanel.tgz https://github.com/goXXip/iptvpanel.net/raw/master/iptvpanel2-cms.tgz >> /dev/null 2>&1
+		wget -O /tmp/iptvpanel.tgz https://basgelsin.tk/iptvpanel2-cms.tgz >> /dev/null 2>&1
 		tar xzvf /tmp/iptvpanel.tgz -C /opt >> /dev/null 2>&1
 		rm -rf /tmp/iptvpanel.tgz >> /dev/null 2>&1
 		
