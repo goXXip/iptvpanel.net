@@ -32,7 +32,7 @@ Installation options:
 
 New version installer with iptvpanel2-cms.tgz
 
-        wget https://github.com/goXXip/iptvpanel.net/blob/master/new-installer.sh
+        wget https://raw.githubusercontent.com/goXXip/iptvpanel.net/master/new-installer.sh
         chmod 755 new-installer.sh
         ./new-installer.sh
 
