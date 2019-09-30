@@ -26,7 +26,7 @@ if [ "$0" == "./installer.sh" ]; then
 	echo -ne "You can't run this script here !!!!\n\n";
 	exit;
 fi
-echo -ne "${BGreen}Welcome to IPTVPANEL v2 install By Multics76\n
+echo -ne "${BGreen}Welcome to IPTVPANEL v2 install By goXXip\n
 ${BRed}Warning: This install script will remove your existing apache2 and its configuration in instead of it install nginx.${Reset}\n
 ${BWhite}Do you want continue (y/n):${Reset} ";
 read AGREE
@@ -151,8 +151,8 @@ function addServer {
 	if [ -f /opt/iptvpanel2/bin/ffprobe ]; then
 		echo -e "${BGreen}Binaries Ok!${Reset}";
 	else
-		wget -O /opt/iptvpanel2/bin/ffprobe hhttps://github.com/iptvpanel/iptvpanel.net/raw/master/ffprobe  >> /dev/null 2>&1
-		wget -O /opt/iptvpanel2/bin/ffmpeg https://github.com/iptvpanel/iptvpanel.net/raw/master/ffmpeg  >> /dev/null 2>&1
+		wget -O /opt/iptvpanel2/bin/ffprobe hhttps://github.com/goXXip/iptvpanel.net/raw/master/ffprobe  >> /dev/null 2>&1
+		wget -O /opt/iptvpanel2/bin/ffmpeg https://github.com/goXXip/iptvpanel.net/raw/master/ffmpeg  >> /dev/null 2>&1
 		chmod a+x /opt/iptvpanel2/bin/ffprobe >> /dev/null 2>&1
 		chmod a+x /opt/iptvpanel2/bin/ffmpeg >> /dev/null 2>&1
 		ln -s /usr/bin/rtmpdump /opt/iptvpanel2/bin
@@ -185,7 +185,7 @@ function writeConfig {
 function upgradeFiles {
 	if [ "$ISCMS" = "1" ]; then
 		echo -ne "${BCyan}Upgrading CMS...${Reset}"
-		wget -O /tmp/iptvpanel.tgz http://37.187.104.191/iptvpanel2-cms.tgz >> /dev/null 2>&1
+		wget -O /tmp/iptvpanel.tgz https://github.com/goXXip/iptvpanel.net/raw/master/iptvpanel2-cms.tgz >> /dev/null 2>&1
 		tar xzvf /tmp/iptvpanel.tgz -C /opt >> /dev/null 2>&1
 		rm -rf /tmp/iptvpanel.tgz >> /dev/null 2>&1
 		
@@ -239,7 +239,7 @@ function upgradeFiles {
 	fi
 	if [ "$ISSTREAMER" = "1" ]; then
 		echo -ne "${BCyan}Upgrading streamer binaries...${Reset}"
-		wget -O /tmp/iptvpanel.tgz https://github.com/iptvpanel/iptvpanel.net/raw/master/iptvpanel2-streamer.tgz >> /dev/null 2>&1
+		wget -O /tmp/iptvpanel.tgz https://github.com/goXXip/iptvpanel.net/raw/master/iptvpanel2-streamer.tgz >> /dev/null 2>&1
 		tar xzvf /tmp/iptvpanel.tgz -C /opt >> /dev/null 2>&1
 		rm -rf /tmp/iptvpanel.tgz >> /dev/null 2>&1
 		echo -e "${BGreen}\t\t\tDone.${Reset}"
@@ -260,7 +260,7 @@ function installCMSPackages {
 		echo -e "listen_addresses = '127.0.0.1'\n" >> /etc/postgresql/9.3/main/postgresql.conf
 	fi
 	/etc/init.d/postgresql restart >> /var/log/iptvpanel-install.log 2>&1
-	wget -N -O /usr/share/GeoIP.dat.gz https://github.com/iptvpanel/iptvpanel.net/raw/master/GeoIP.dat.gz >> /dev/null 2>&1
+	wget -N -O /usr/share/GeoIP.dat.gz https://github.com/goXXip/iptvpanel.net/raw/master/GeoIP.dat.gz >> /dev/null 2>&1
 	gzip -d /usr/share/GeoIP.dat.gz >> /dev/null 2>&1
 	psql -U postgres -c "ALTER USER postgres WITH PASSWORD 'Pass22pp2019ssh808'" >> /var/log/iptvpanel-install.log 2>&1
 	echo -e "${BGreen}\t\t\tDone.${Reset}"
@@ -401,7 +401,7 @@ function cleanUp {
 	chown -R www-data:www-data /opt/iptvpanel2 >> /dev/null 2>&1
 	chmod -R 777 /opt/iptvpanel2/www/vod >> /dev/null 2>&1
 	chmod -R 777 /opt/iptvpanel2/www/hls >> /dev/null 2>&1
-	wget -O /dev/null "http://cr.iptvpanel.net/install.php?cmsurl=$CMSURL&servername=$SERVERNAME&serverip=$SERVERIP&serverintip=$SERVERINTIP&iscms=$ISCMS&isstreamer=$ISSTREAMER" > /dev/null 2>&1
+	wget -O /dev/null "https://github.com/goXXip/iptvpanel.net/install.php?cmsurl=$CMSURL&servername=$SERVERNAME&serverip=$SERVERIP&serverintip=$SERVERINTIP&iscms=$ISCMS&isstreamer=$ISSTREAMER" > /dev/null 2>&1
 	killall -9 galaxy2 >> /dev/null 2>&1
 	echo -e "${BGreen}\tDone.${Reset}"
 	
